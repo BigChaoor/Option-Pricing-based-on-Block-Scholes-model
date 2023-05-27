@@ -5,7 +5,7 @@ SigmaEps = 1E-2;
 G = AnalyticalSolu(1,1,tao);
 T = G.*(1 + SigmaEps*randn(1,n));
 
-%% MCMC algorithm via analytical solution
+%% MCMC algorithm via AnalyticalSolu2
 SigmaTheta = [0.01, 0; 0, 0.01];  
 k_star = 5000;
 sample2 = zeros(k_star,2);
