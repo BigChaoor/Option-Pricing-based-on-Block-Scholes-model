@@ -1,9 +1,11 @@
+%% parameter settings
 tao = 1:0.05:2;
 n = length(tao);
 SigmaEps = 1E-2; 
 G = AnalyticalSolu(1,1,tao);
 T = G.*(1 + SigmaEps*randn(1,n));
-%%%%%%%%%%%%%%%%%%%%
+
+%% MCMC algorithm via analytical solution
 SigmaTheta = [0.01, 0; 0, 0.01];  
 k_star = 5000;
 sample2 = zeros(k_star,2);
@@ -20,6 +22,7 @@ for k = 1:k_star
     end
     sample2(k,:) = theta0;
 end
+%% figures
 x = 1:k_star;
 figure(1)
 plot(x,sample2(:,1),'b')
